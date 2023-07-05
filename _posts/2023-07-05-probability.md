@@ -95,3 +95,9 @@ $P(A)=\frac{N_A}{N}$
   $A\cup B = \\{k\vert k\in \Omega \, and\, k \notin A\\}$
 
 - 여집합(complementary set)
+
+- $$
+  a
+  $$
+
+  
