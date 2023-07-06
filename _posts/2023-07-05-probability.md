@@ -7,6 +7,7 @@ tags:
 math: true
 date: 2023-07-05
 Last_modified_at: 2023-07-05
+published: false
 ---
 
 ## 시행과 표본 공간 & 사건
