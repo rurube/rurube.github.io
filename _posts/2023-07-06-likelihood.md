@@ -89,7 +89,7 @@ date: 2023-07-06
 
 ### likelihood가 왜 중요한가?
 
-​	데이터 포인트가 모델 함수에서 멀어질수록 데이터의 likelihood는 기하급수적으로 감수한다. 즉, 머신러닝의 목표는 곧 데이터 포인트들의 likelihood 값을 크게 하는 모델을 찾는 것이다. 데이터의 likelihood 값을 최대화하는 모델 파라미터를 찾는 방법이 **최대 가능도 추론**(maximum likelihood estimation, MLE)이다.
+​	데이터 포인트가 모델 함수에서 멀어질수록 데이터의 likelihood는 기하급수적으로 감소한다. 즉, 머신러닝의 목표는 곧 데이터 포인트들의 likelihood 값을 크게 하는 모델을 찾는 것이다. 데이터의 likelihood 값을 최대화하는 모델 파라미터를 찾는 방법이 **최대 가능도 추론**(maximum likelihood estimation, MLE)이다.
 
 
 
@@ -140,17 +140,13 @@ $$\begin{aligned}
 $\theta$와 관계없는 부분을 빼고 식을 정리하면 다음과 같다.<sup>[[3]](#footnote_3)</sup><sup>[[4]](#footnote_4)</sup> 
 
 $$
-
 \theta_{ML}=\arg\min_{\theta}\frac{1}{2\sigma^2}\sum_{n}(y_n-\theta^{\top} x_n)^2
-
 $$
 
 최소화해야 할 식을 $\theta$에 대한 함수 $\mathcal{L}(\theta)$로 놓으면,
 
 $$
-
 \mathcal{L}(\theta)=\frac{1}{2\sigma^2}\sum_{n}(y_n-\theta^{\top}x_n)^2
-
 $$
 
 $\mathcal{L}(\theta)$를 최소화하는 $\theta$의 값은 $\mathcal{L}(\theta)$를 $\theta$에 대해 미분한 식을 0으로 만드는 $\theta$의 값과 같다. 일반적으로는 도함수의 부호 변화나 local minimum 여부 등도 따져야 하지만, $\mathcal{L}(\theta)$는 $\theta$에 대한 이차식이므로 유일한 최솟값을 가진다. 따라서 도함수를 0으로 만드는 값을 찾는 것으로도 충분하다.
@@ -172,9 +168,7 @@ $$\begin{aligned}
 데이터셋 $X=[x_1x_2\ldots x_n]^{\top}\in \mathbb{R}^{n\times d}$(d차원 데이터 $x_n=[x_{n1}\ldots x_{nd}]^{\top}$), 라벨 $y=[y_1y_2\ldots y_n]^{\top}$일 때, 최적 파라미터 $\theta{ML}$은 다음과 같다.
 
 $$
-
 \theta_{ML}=(X^{\top}X)^{-1}X^{\top}y
-
 $$
 
 
@@ -242,9 +236,7 @@ $$\begin{aligned}
 MAP에서 $\mathcal{P}(\theta)$를 최소화하는 $\theta$를 찾는 방법은 MLE에서와 동일하다. 같은 방식으로 계산하면 MAP의 최적 파라미터 $\theta_{MAP}$은 다음과 같다.
 
 $$
-
 \theta_{MAP}=\left( X^{\top}X+\frac{\sigma^2}{\alpha^2}\boldsymbol{I} \right)^{-1}X^{\top}y
-
 $$
 
 MLE와 다른 점은 $(\sigma^2/\alpha^2\boldsymbol{I})$항이 더해졌다는 것이다.
