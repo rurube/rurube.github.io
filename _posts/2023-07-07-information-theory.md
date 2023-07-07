@@ -20,7 +20,7 @@ date: 2023-07-06
 
 - 정보량은 한 가지 사건에 대한 값이다
 
-- 사건 x가 일어날 확률을 P(X=x)라고 할 때, 사건의 정보량 I(x)는 다음과 같이 정의된다.
+- 사건 x가 일어날 확률을 P(X=x)라고 할 때, 사건의 정보량 I(x)는 다음과 같이 정의된다.<br>
   $$
   I(x)=-\log_bP(x)
   $$
@@ -35,7 +35,7 @@ date: 2023-07-06
 
 ### For Discrete Random Variables
 
-​	이산 확률 변수 X가 $x_1,x_2,\ldots ,x_n$ 중 하나의 값을 가진다고 가정할 때 엔트로피는 각각의 경우의 수가 가지는 정보량에 확률을 곱한 후 그 값을 모두 더한 값이다.
+​	이산 확률 변수 X가 $x_1,x_2,\ldots ,x_n$ 중 하나의 값을 가진다고 가정할 때 엔트로피는 각각의 경우의 수가 가지는 정보량에 확률을 곱한 후 그 값을 모두 더한 값이다.<br>
 $$
 H(X)=\mathbb{E}_{X\sim P}[I(x)]=-\sum_{i=1}^np_i\log p_i\qquad (p_i:=P(X=x_i))
 $$
@@ -65,36 +65,39 @@ $$
   - 학습 시 두 확률 분포의 차이를 나타내는 지표 필요
   - 대표적으로 **쿨백-라이블러 발산**(Kullback-Leibler divergence, KL divergence)
 
-데이터가 따르는 실제 확률 분포를 $P(x)$, 모델이 나타내는 확률 분포를 $Q(x)$라고 하자. 두 확률 분포의 KL divergence는 다음과 같다.
+데이터가 따르는 실제 확률 분포를 $P(x)$, 모델이 나타내는 확률 분포를 $Q(x)$라고 하자. 두 확률 분포의 KL divergence는 다음과 같다.<br>
 $$
 D_{KL}(P\Vert Q)=\mathbb{E}_{X\sim P}[-\log Q(x)]-\mathbb{E}_{X\sim P}[-\log P(x)]=\sum P(x)log\left( \frac{P(x)}{Q(x)} \right)
 $$
-연속 확률 변수의 경우에는 아래와 같다.
+<br>연속 확률 변수의 경우에는 아래와 같다.<br>
 $$
 D_{KL}(P\Vert Q)=\int P(x)\log \left( \frac{P(x)}{Q(x)} \right)dx
 $$
+<br>
 
 1. $D_{KL}(P\Vert Q)\geq 0$
+
 2. $D_{KL}(P\Vert Q)=0 if and only if P=Q$
+
 3. $non-symmertric:D_{KL}(P\Vert Q)\neq D_{KL}(Q\Vert P)$
 
 위의 세 가지는 KL divergence의 대표적인 특성이다. 
 
-​	머신러닝 문제에서는 두 확률 분포의 차이를 줄여야 하므로 $D_{KL}(P\Vert Q)$를 최소화하는 방향으로 모델을 학습시킨다.
+​	머신러닝 문제에서는 두 확률 분포의 차이를 줄여야 하므로 $D_{KL}(P\Vert Q)$를 최소화하는 방향으로 모델을 학습시킨다.<br>
 $$
 D_{KL}(P\Vert Q)=\sum_{x\in X}P(x)\log \left( \frac{P(x)}{Q(x)} \right)=\left(-\sum P(x)\log Q(x) \right)-\left(-\sum P(x)\log P(x) \right)
 $$
-P(x)는 데이터의 실제 분포이기 때문에 조절할 수 없는 값이다. 우리가 바꿀 수 있는 부분은 Q(x)에 대한 부분이기 때문에 KL 발산을 최소화하는 것은 곧 Q(x)부분을 최소화하는 것과 동일하다. 이것이 P(x)에 대한 Q(x)의 **교차 엔트로피(cross entropy)**이다.
+<br>P(x)는 데이터의 실제 분포이기 때문에 조절할 수 없는 값이다. 우리가 바꿀 수 있는 부분은 Q(x)에 대한 부분이기 때문에 KL 발산을 최소화하는 것은 곧 Q(x)부분을 최소화하는 것과 동일하다. 이것이 P(x)에 대한 Q(x)의 **교차 엔트로피(cross entropy)**이다.
 
 
 
 ### Cross Entropy
 
- 	(5)의 식에서 교차 엔트로피는 Q(x)가 포함된 부분으로,
+ 	(5)의 식에서 교차 엔트로피는 Q(x)가 포함된 부분으로,<br>
 $$
 H(P,Q)=H(P)+D_{KL}(P\Vert Q)
 $$
-로 나타낼 수 있다. 위 식에서 KL 발산을 최소화하는 것과 교차 엔트로피를 최소화하는 것이 수학적으로 같음을 확인할 수 있다.
+<br>로 나타낼 수 있다. 위 식에서 KL 발산을 최소화하는 것과 교차 엔트로피를 최소화하는 것이 수학적으로 같음을 확인할 수 있다.
 
 
 
@@ -105,11 +108,11 @@ $$
   - 파라미터에 의해 결정됨
   - 예) 최소제곱법, cross entropy
 
-- Cross entropy
+- Cross entropy<br>
   $$
   H(P,Q)=-\mathbb{E}_{X\sim P}[\log Q(x)]=-\sum P(x)\log Q(x)
   $$
-  ​	분류 문제에서 데이터의 라벨은 one-hot encoding으로 표현된다. 입력 데이터의 특성값이 모델을 통과하면 출력 레이어의 소프트맥스 함수를 지나 각각 클래스에 속할 확률이 계산되는데, 이 확률 값들이 모델이 추정한 확률 분포 Q(x)를 구성한다. 3개의 클래스 $c_1, c_2, c_3$이 존재하는 분류 문제에서 출력값을 다음과 같이 가정했을 때,<br>
+  <br>	분류 문제에서 데이터의 라벨은 one-hot encoding으로 표현된다. 입력 데이터의 특성값이 모델을 통과하면 출력 레이어의 소프트맥스 함수를 지나 각각 클래스에 속할 확률이 계산되는데, 이 확률 값들이 모델이 추정한 확률 분포 Q(x)를 구성한다. 3개의 클래스 $c_1, c_2, c_3$이 존재하는 분류 문제에서 출력값을 다음과 같이 가정했을 때,<br>
   $$
   softmax(input)=\begin{bmatrix}0.2\\0.7\\0.1\end{bmatrix}
   $$
@@ -133,11 +136,11 @@ $$
 
 ### Cross Entropy와 Likelihood의 관계
 
-​	모델의 파라미터를 $\theta$로 놓으면 모델이 표현하는 확률 분포는 $Q(y\vert X,\theta)$로, 데이터의 실제 분포는 $P(y\vert X)$로 나타낼 수 있다. 그런데 $Q(y\vert X,\theta)$는 데이터셋과 파라미터가 주어졌을 때의 예측값의 분포이므로 모델의 likelihood와 동일하다.
+​	모델의 파라미터를 $\theta$로 놓으면 모델이 표현하는 확률 분포는 $Q(y\vert X,\theta)$로, 데이터의 실제 분포는 $P(y\vert X)$로 나타낼 수 있다. 그런데 $Q(y\vert X,\theta)$는 데이터셋과 파라미터가 주어졌을 때의 예측값의 분포이므로 모델의 likelihood와 동일하다.<br>
 $$
 \begin{aligned}H(P,Q)&=-\sum P(y\vert X)\log Q(y\vert X,\theta)\\&=\sum P(y\vert X)(-\log Q(y\vert X,\theta)) \end{aligned}
 $$
-우리가 변경할 수 있는 값은 log로 묶인 부분이기 때문에, cross entropy를 최소화하는 파라미터를 구하는 것은 곧 negative log likelihood를 최소화하는 파라미터를 구하는 것과 같다.
+<br>우리가 변경할 수 있는 값은 log로 묶인 부분이기 때문에, cross entropy를 최소화하는 파라미터를 구하는 것은 곧 negative log likelihood를 최소화하는 파라미터를 구하는 것과 같다.
 
 
 
