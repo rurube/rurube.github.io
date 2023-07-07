@@ -99,7 +99,7 @@ $$
 
 
 
-
+<br>
 
 ​	머신러닝 문제에서는 두 확률 분포의 차이를 줄여야 하므로 $D_{KL}(P\Vert Q)$를 최소화하는 방향으로 모델을 학습시킨다.
 
@@ -141,24 +141,29 @@ $$
   H(P,Q)=-\mathbb{E}_{X\sim P}[\log Q(x)]=-\sum P(x)\log Q(x)
   $$
   
-
   ​	분류 문제에서 데이터의 라벨은 one-hot encoding으로 표현된다. 입력 데이터의 특성값이 모델을 통과하면 출력 레이어의 소프트맥스 함수를 지나 각각 클래스에 속할 확률이 계산되는데, 이 확률 값들이 모델이 추정한 확률 분포 Q(x)를 구성한다. 3개의 클래스 $c_1, c_2, c_3$이 존재하는 분류 문제에서 출력값을 다음과 같이 가정했을 때,
-
+  
+  
   
   $$
   softmax(input)=\begin{bmatrix}0.2\\0.7\\0.1\end{bmatrix}
   $$
   
-
+  
+  
   이 결과는 다음 식과 같다.
+  
+  
 
 
 $$
 \begin{matrix}Q(X=c_1)=0.2\\Q(X=c_2)=0.7\\Q(X=c_3)=0.1 \end{matrix}
 $$
 
+​		
 
 ​		데이터가 실제로 2번 클래스에 속한다고 하자. 데이터의 실제 확률 분포는 [0, 1, 0]이 된다.
+
 
 
 $$
@@ -166,12 +171,15 @@ $$
 $$
 
 
+
 ​		cross entropy를 사용하면 P(x)와 Q(x)의 차이를 다음과 같이 계산할 수 있다.
+
 
 
 $$
 \begin{aligned}H(P,Q)&=-\sum P(x)\log Q(x)\\&=-(0\cdot\log0.2+\log0.7+0\cdot\log0.1)\\&=-\log0.7\approx0.357 \end{aligned}
 $$
+
 
 
 ### Cross Entropy와 Likelihood의 관계
