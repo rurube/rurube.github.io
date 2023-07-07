@@ -6,7 +6,6 @@ tags:
   - [Aiffel]
 math: true
 date: 2023-07-06
-published: false
 ---
 
 ## Information Content
