@@ -89,6 +89,7 @@ comments:
   # utterances settings › https://utteranc.es/
   utterances:
     repo: "rurube/rurube.github.io"
+    theme: "preferred-color-scheme"
     issue_term: pathname
   # Giscus options › https://giscus.app
   giscus:
