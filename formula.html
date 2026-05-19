@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCENT FOR MY DEAREST — Formulation Note</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <style>
+        :root {
+            --bg-color: #fdfcfb;
+            --text-main: #333;
+            --point-color: #4a3e3d;
+            --tag-bg: #f5f0ed;
+            --border-color: #ebdcd8;
+            --sub-color: #998c8b;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f4eae6;
+            color: var(--text-main);
+            padding: 20px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container { width: 100%; max-width: 440px; background: white; border-radius: 16px; padding: 25px; box-shadow: 0 8px 24px rgba(74,62,61,0.05); margin-bottom: 25px; }
+        h1 { font-family: 'Noto Sans KR', sans-serif; font-size: 1.1rem; font-weight: 500; text-align: center; margin-bottom: 30px; color: var(--point-color); letter-spacing: 1px; }
+
+        .form-group { margin-bottom: 25px; border-bottom: 1px solid #f9f6f5; padding-bottom: 20px; }
+        .form-group:last-child { border-bottom: none; }
+        .label-title { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; color: var(--point-color); border-left: 3px solid var(--point-color); padding-left: 10px; }
+
+        input[type="text"], input[type="date"], textarea { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 0.85rem; outline: none; font-family: 'Noto Sans KR', sans-serif; background-color: #fdfdfd; color: #333; }
+        textarea { resize: none; line-height: 1.5; }
+        
+        .row-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+        .note-grid { display: grid; grid-template-columns: 80px 1fr; gap: 10px; margin-bottom: 10px; align-items: center; }
+        .note-label { font-size: 0.8rem; font-weight: 500; color: var(--point-color); }
+
+        /* 미리보기 카드 디자인 */
+        #preview-card {
+            width: 100%; max-width: 440px; background-color: var(--bg-color); padding: 45px 30px; border: 1px solid var(--border-color); border-radius: 4px; font-family: 'Gowun Batang', serif; position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+        .card-header { text-align: center; margin-bottom: 35px; border-bottom: 1px double var(--point-color); padding-bottom: 20px; }
+        .card-header .brand { font-size: 0.8rem; letter-spacing: 1.5px; color: var(--point-color); margin-bottom: 6px; font-family: 'Noto Sans KR', sans-serif; font-weight: 500; }
+        .card-header .title { color: var(--sub-color); letter-spacing: 1px; font-family: 'Noto Sans KR'; font-size: 0.65rem; text-transform: uppercase; }
+
+        .card-row { margin-bottom: 22px; display: flex; flex-direction: column; }
+        .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 22px; }
+        .card-label { font-family: 'Noto Sans KR'; font-size: 0.7rem; color: #a39594; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 500; }
+        .card-value { font-size: 0.9rem; color: #222; line-height: 1.5; }
+        
+        /* 올팩토리 노트 전용 레이아웃 */
+        .olfactory-container { display: flex; flex-direction: column; gap: 12px; padding: 5px 0; }
+        .olfactory-line { display: grid; grid-template-columns: 75px 1fr; gap: 15px; align-items: flex-start; }
+        .olfactory-type { font-family: 'Noto Sans KR'; font-size: 0.7rem; font-weight: 700; color: var(--point-color); letter-spacing: 0.5px; text-transform: uppercase; padding-top: 2px; }
+        .olfactory-notes { font-size: 0.85rem; color: #444; line-height: 1.4; }
+
+        .btn-save { width: 100%; max-width: 440px; background-color: var(--point-color); color: white; border: none; padding: 16px; border-radius: 8px; font-size: 0.95rem; margin-top: 25px; cursor: pointer; font-weight: 500; font-family: 'Noto Sans KR'; box-shadow: 0 6px 15px rgba(74,62,61,0.2); transition: background 0.2s; }
+        .btn-save:active { background-color: #362d2c; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>FORMULATION NOTE EDITOR</h1>
+        
+        <!-- 1. 기본 관리 정보 -->
+        <div class="form-group">
+            <label class="label-title">1. 관리 및 아카이브 정보</label>
+            <div class="row-grid">
+                <input type="text" id="in-code" placeholder="관리 번호 (e.g. #0425-01)" oninput="updateCard()">
+                <input type="text" id="in-bias" placeholder="대상 이름 (고객 제공용)" oninput="updateCard()">
+            </div>
+            <div class="row-grid">
+                <input type="text" id="in-perfumer" placeholder="조향사 이름" value="Perfumer 아틀리에" oninput="updateCard()">
+                <input type="text" id="in-date" placeholder="제작일 (e.g. 2026. 05. 19)" oninput="updateCard()">
+            </div>
+        </div>
+
+        <!-- 2. 올팩토리 피라미드 (향조) -->
+        <div class="form-group">
+            <label class="label-title">2. 올팩토리 노트 구성 (Olfactory Note)</label>
+            <div class="note-grid">
+                <span class="note-label">Top Note</span>
+                <input type="text" id="in-top" placeholder="e.g. Bergamot, Lemon, Neroli" oninput="updateCard()">
+            </div>
+            <div class="note-grid">
+                <span class="note-label">Middle Note</span>
+                <input type="text" id="in-middle" placeholder="e.g. Jasmine, Rose, Cedarwood" oninput="updateCard()">
+            </div>
+            <div class="note-grid">
+                <span class="note-label">Base Note</span>
+                <input type="text" id="in-base" placeholder="e.g. Amber, Musk, Sandalwood, Vetiver" oninput="updateCard()">
+            </div>
+        </div>
+
+        <!-- 3. 조향 코멘트 및 설계 의도 -->
+        <div class="form-group">
+            <label class="label-title">3. 조향 코멘트 및 설계 의도</label>
+            <textarea id="in-comment" rows="4" placeholder="고객의 사양서를 바탕으로 어떤 의도를 담아 메인 아코드를 설계했는지 담백하게 기술해 주세요." oninput="updateCard()"></textarea>
+        </div>
+    </div>
+
+    <!-- 출력용 아카이브 조향 노트 카드 -->
+    <div id="preview-card">
+        <div class="card-header">
+            <div class="brand">SCENT FOR MY DEAREST</div>
+            <div class="title">PERFUME FORMULATION ARCHIVE</div>
+        </div>
+
+        <div class="card-grid">
+            <div class="card-row">
+                <div class="card-label">Archive No.</div>
+                <div class="card-value" id="card-code" style="font-family:'Noto Sans KR'; font-size:0.85rem; font-weight:500;">#0000-00</div>
+            </div>
+            <div class="card-row">
+                <div class="card-label">Formulated For</div>
+                <div class="card-value" id="card-bias" style="font-weight:700; color:var(--point-color);">이름</div>
+            </div>
+        </div>
+
+        <!-- 올팩토리 노트 섹션 -->
+        <div class="card-row" style="border-top: 1px solid #f0eae6; padding-top: 15px; margin-bottom: 15px;">
+            <div class="card-label" style="margin-bottom: 10px;">Olfactory Note</div>
+            <div class="olfactory-container">
+                <div class="olfactory-line">
+                    <span class="olfactory-type">Top Note</span>
+                    <span class="olfactory-notes" id="card-top">-</span>
+                </div>
+                <div class="olfactory-line">
+                    <span class="olfactory-type">Middle Note</span>
+                    <span class="olfactory-notes" id="card-middle">-</span>
+                </div>
+                <div class="olfactory-line">
+                    <span class="olfactory-type">Base Note</span>
+                    <span class="olfactory-notes" id="card-base">-</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 조향사 코멘트 섹션 -->
+        <div class="card-row" style="border-top: 1px solid #f0eae6; border-bottom: 1px solid #f0eae6; padding: 18px 0; margin-top: 5px;">
+            <div class="card-label">Perfumer's Comment</div>
+            <div class="card-value" id="card-comment" style="font-size: 0.85rem; color:#444; text-align: justify; min-height: 60px; line-height: 1.6;">
+                의뢰하신 사양서에 기반한 조향 설계 의도가 이곳에 기록됩니다.
+            </div>
+        </div>
+
+        <div class="card-grid" style="margin-top: 20px; margin-bottom: 10px;">
+            <div class="card-row" style="margin-bottom: 0;">
+                <div class="card-label">Formulated By</div>
+                <div class="card-value" id="card-perfumer" style="font-size:0.8rem; color:#555;">Perfumer</div>
+            </div>
+            <div class="card-row" style="margin-bottom: 0;">
+                <div class="card-label">Issue Date</div>
+                <div class="card-value" id="card-date" style="font-size:0.8rem; color:#555;">YYYY. MM. DD</div>
+            </div>
+        </div>
+
+        <div style="margin-top:35px; font-size:0.6rem; color:#c2b2b0; text-align:center; font-family:'Noto Sans KR'; letter-spacing: 1px;">
+            © SCENT FOR MY DEAREST. ALL RIGHTS RESERVED.
+        </div>
+    </div>
+
+    <button class="btn-save" onclick="saveImage()">조향 노트 저장하기</button>
+
+    <script>
+        function updateCard() {
+            document.getElementById('card-code').innerText = document.getElementById('in-code').value || "#0000-00";
+            document.getElementById('card-bias').innerText = document.getElementById('in-bias').value || "이름";
+            document.getElementById('card-perfumer').innerText = document.getElementById('in-perfumer').value || "Perfumer";
+            document.getElementById('card-date').innerText = document.getElementById('in-date').value || "YYYY. MM. DD";
+            
+            document.getElementById('card-top').innerText = document.getElementById('in-top').value || "-";
+            document.getElementById('card-middle').innerText = document.getElementById('in-middle').value || "-";
+            document.getElementById('card-base').innerText = document.getElementById('in-base').value || "-";
+            
+            document.getElementById('card-comment').innerText = document.getElementById('in-comment').value || "의뢰하신 사양서에 기반한 조향 설계 의도가 이곳에 기록됩니다.";
+        }
+
+        function saveImage() {
+            const card = document.getElementById('preview-card');
+            // 파일명을 관리번호나 대상 이름 기반으로 매끄럽게 지정하기 위함
+            const code = document.getElementById('in-code').value || 'archive';
+            const name = document.getElementById('in-bias').value || 'note';
+            
+            html2canvas(card, { scale: 2, backgroundColor: "#fdfcfb" }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = `formula_${code}_${name}.png`;
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        }
+
+        // 초기화
+        updateCard();
+    </script>
+</body>
+</html>
