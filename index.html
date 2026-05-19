@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCENT FOR MY DEAREST</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-main: #f4eae6;
+            --bg-card: #fdfcfb;
+            --text-main: #333;
+            --point-color: #4a3e3d;
+            --sub-color: #998c8b;
+            --border-color: #ebdcd8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 440px;
+            background: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40px 30px;
+            box-shadow: 0 0 30px rgba(74,62,61,0.05);
+        }
+
+        header {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .brand-logo {
+            font-family: 'Gowun Batang', serif;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            color: var(--point-color);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        .brand-title {
+            font-family: 'Gowun Batang', serif;
+            font-size: 1.75rem;
+            color: var(--point-color);
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .intro-visual {
+            margin: 40px 0;
+            height: 220px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-card);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border-radius: 4px;
+        }
+        .visual-circle {
+            width: 100px;
+            height: 100px;
+            border: 1px dotted var(--point-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.6;
+            animation: rotateCircle 25s linear infinite;
+        }
+        .visual-line {
+            width: 1px;
+            height: 120px;
+            background-color: var(--border-color);
+            position: absolute;
+            top: 0;
+        }
+        @keyframes rotateCircle {
+            100% { transform: rotate(360deg); }
+        }
+
+        .concept-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .concept-title {
+            font-family: 'Gowun Batang', serif;
+            font-size: 1.05rem;
+            color: var(--point-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .concept-desc {
+            font-size: 0.82rem;
+            color: #666;
+            line-height: 1.6;
+            font-weight: 300;
+            word-break: keep-all;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        .info-item {
+            background-color: var(--bg-card);
+            border: 1px solid #f9f6f5;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .info-num {
+            font-family: 'Gowun Batang', serif;
+            font-size: 1.15rem;
+            color: var(--point-color);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .info-label {
+            font-size: 0.65rem;
+            color: var(--sub-color);
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            background-color: var(--point-color);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            box-shadow: 0 6px 20px rgba(74,62,61,0.15);
+            transition: all 0.2s;
+        }
+        .cta-button:active {
+            background-color: #362d2c;
+            transform: translateY(1px);
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.6rem;
+            color: var(--sub-color);
+            letter-spacing: 1px;
+            margin-top: 40px;
+            border-top: 1px solid #f9f6f5;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <header>
+            <h1 class="brand-title">SCENT FOR<br>MY DEAREST</h1>
+        </header>
+
+        <div class="intro-visual">
+            <div class="visual-line"></div>
+            <div class="visual-circle">
+                <span style="font-size: 0.55rem; color: var(--point-color); letter-spacing: 2px; font-weight:700;">DEAREST</span>
+            </div>
+        </div>
+
+        <div class="concept-section">
+            <h2 class="concept-title">당신만을 위한 조향 사양서</h2>
+            <p class="concept-desc">
+                최애의 서사와 텍스처, 보이지 않는 미세한 뉘앙스까지. 36가지 필터를 통해 그 분위기를 온전히 담아낸 아카이브 사양서를 발급합니다.
+            </p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-item">
+                <div class="info-num">36 Nuances</div>
+                <div class="info-label">SCENT PALETTE</div>
+            </div>
+            <div class="info-item">
+                <div class="info-num">For You</div>
+                <div class="info-label">ARCHIVE BEYOND</div>
+            </div>
+        </div>
+
+        <a href="order.html" class="cta-button">향수 아카이브 시작하기</a>
+
+        <footer>
+            © SCENT FOR MY DEAREST. ALL RIGHTS RESERVED.
+        </footer>
+    </div>
+
+</body>
+</html>
