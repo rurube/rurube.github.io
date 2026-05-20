@@ -6,7 +6,7 @@
     "note": ["top"],
     "role": "기조제",
     "odor": "시트러스",
-    "stock": false
+    "stock": true
   },
   {
     "id": "PB02",
@@ -15,7 +15,7 @@
     "note": ["top"],
     "role": "기조제",
     "odor": "시트러스",
-    "stock": false
+    "stock": true
   },
   {
     "id": "PB03",
@@ -42,7 +42,7 @@
     "note": ["middle"],
     "role": "기조제",
     "odor": "플로럴",
-    "stock": false
+    "stock": true
   },
   {
     "id": "PB06",
@@ -123,7 +123,7 @@
     "note": ["base"],
     "role": "보류제",
     "odor": "우디",
-    "stock": false
+    "stock": true
   },
   {
     "id": "PB15",
@@ -159,7 +159,7 @@
     "note": ["middle"],
     "role": "기조제",
     "odor": "플로럴",
-    "stock": false
+    "stock": true
   },
   {
     "id": "PB19",
@@ -212,7 +212,7 @@
     "note": ["middle"],
     "role": "조화제",
     "odor": "허벌",
-    "stock": false
+    "stock": true
   },
   {
     "id": "PB25",
@@ -239,7 +239,7 @@
     "note": ["base"],
     "role": "변조제",
     "odor": "구르망",
-    "stock": false
+    "stock": true
   },
   {
     "id": "PB28",
@@ -248,7 +248,7 @@
     "note": ["middle", "base"],
     "role": "기조제",
     "odor": "플로럴",
-    "stock": false
+    "stock": true
   },
   {
     "id": "PB29",
@@ -257,7 +257,7 @@
     "note": ["base"],
     "role": "보류제",
     "odor": "머스크",
-    "stock": false
+    "stock": true
   },
   {
     "id": "PB30",
@@ -275,7 +275,7 @@
     "note": ["base"],
     "role": "보류제",
     "odor": "머스크",
-    "stock": false
+    "stock": true
   },
   {
     "id": "PB32",
@@ -329,7 +329,7 @@
     "note": ["middle"],
     "role": "기조제",
     "odor": "플로럴",
-    "stock": false
+    "stock": true
   },
   {
     "id": "PB38",
@@ -464,7 +464,7 @@
     "note": ["base"],
     "role": "보류제",
     "odor": "애니멀릭",
-    "stock": false
+    "stock": true
   },
   {
     "id": "PB53",
@@ -617,7 +617,7 @@
     "note": ["base"],
     "role": "보류제",
     "odor": "애니멀릭",
-    "stock": false
+    "stock": true
   },
   {
     "id": "PB70",
@@ -653,7 +653,7 @@
     "note": ["middle"],
     "role": "기조제",
     "odor": "플로럴",
-    "stock": false
+    "stock": true
   },
   {
     "id": "PB74",
@@ -707,7 +707,7 @@
     "note": ["middle"],
     "role": "변조제",
     "odor": "그린",
-    "stock": false
+    "stock": true
   },
   {
     "id": "PB80",
@@ -743,7 +743,7 @@
     "note": ["top"],
     "role": "기조제",
     "odor": "그린",
-    "stock": false
+    "stock": true
   },
   {
     "id": "PB84",
