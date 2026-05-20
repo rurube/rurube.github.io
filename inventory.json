@@ -248,7 +248,7 @@
     "note": ["middle", "base"],
     "role": "기조제",
     "odor": "플로럴",
-    "stock": true
+    "stock": false
   },
   {
     "id": "PB29",
@@ -329,7 +329,7 @@
     "note": ["middle"],
     "role": "기조제",
     "odor": "플로럴",
-    "stock": true
+    "stock": false
   },
   {
     "id": "PB38",
