@@ -32,7 +32,7 @@
     "eng": "Vetiver",
     "note": ["base"],
     "role": "보류제",
-    "odor": "우디",
+    "odor": "오리엔탈",
     "stock": true
   },
   {
@@ -229,7 +229,7 @@
     "eng": "Vanilla",
     "note": ["base"],
     "role": "보류제",
-    "odor": "구르망",
+    "odor": "발사믹",
     "stock": false
   },
   {
