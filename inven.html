@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier Inventory — SCENT FOR MY DEAREST</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --point-color: #4a3e3d;
+            --border-color: #ebdcd8;
+            --bg-top: #fcf9f7;
+            --bg-middle: #f6f1ee;
+            --bg-base: #ede6e2;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #fcfaf9; color: #333; padding: 40px 20px; }
+        .wrapper { width: 100%; max-width: 1050px; margin: 0 auto; }
+        
+        h1 { font-weight: 400; font-size: 1.6rem; letter-spacing: 2px; color: var(--point-color); margin-bottom: 30px; text-align: center; }
+        
+        /* 대시보드 컨트롤러 */
+        .control-panel { background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; margin-bottom: 25px; box-shadow: 0 4px 12px rgba(74,62,61,0.02); display: flex; flex-wrap: wrap; gap: 15px; align-items: center; }
+        .search-box { flex: 1; min-width: 250px; position: relative; }
+        .search-box input { width: 100%; padding: 12px 16px; border: 1px solid var(--border-color); border-radius: 8px; outline: none; font-size: 0.9rem; }
+        
+        .filter-buttons { display: flex; gap: 8px; }
+        .filter-btn { padding: 10px 18px; border: 1px solid var(--border-color); background: white; border-radius: 8px; cursor: pointer; font-size: 0.85rem; transition: all 0.2s; color: #666; }
+        .filter-btn.active { background: var(--point-color); color: white; border-color: var(--point-color); }
+
+        .sort-box select { padding: 10px 14px; border: 1px solid var(--border-color); border-radius: 8px; background: white; font-size: 0.85rem; color: #555; outline: none; cursor: pointer; }
+
+        /* 향료 테이블 */
+        .table-container { background: white; border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(74,62,61,0.02); }
+        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
+        th { background: #fdfcfb; padding: 16px 15px; border-bottom: 1px solid var(--border-color); color: var(--point-color); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        td { padding: 16px 15px; border-bottom: 1px solid #f9f6f5; vertical-align: middle; }
+        tr:last-child td { border-bottom: none; }
+        
+        /* 노트 뱃지 스타일 */
+        .badge-container { display: flex; gap: 4px; flex-wrap: wrap; }
+        .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; }
+        .badge.top { background: var(--bg-top); color: #b07d62; border: 1px solid #f3e6df; }
+        .badge.middle { background: var(--bg-middle); color: #8c7a6b; border: 1px solid #e5ded9; }
+        .badge.base { background: var(--bg-base); color: #5c5146; border: 1px solid #dad1cb; }
+
+        /* 역할 및 향조 텍스트 커스텀 */
+        .meta-text { font-size: 0.85rem; color: #555; }
+        .odor-tag { color: #827271; font-weight: 500; }
+
+        /* 품절 상태 표시 */
+        .status { font-size: 0.85rem; font-weight: 500; }
+        .status.in-stock { color: #4e8752; }
+        .status.out-of-stock { color: #c95757; }
+        tr.sold-out td { color: #bbb; }
+        tr.sold-out .badge { opacity: 0.5; }
+        tr.sold-out .meta-text { color: #ccc; }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <h1>PERFUME INVENTORY MANAGEMENT</h1>
+
+    <div class="control-panel">
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="코드명, 국문명, 영문명, 역할, 향조 검색..." oninput="filterInventory()">
+        </div>
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="setFilter('all', this)">ALL</button>
+            <button class="filter-btn" onclick="setFilter('top', this)">TOP</button>
+            <button class="filter-btn" onclick="setFilter('middle', this)">MIDDLE</button>
+            <button class="filter-btn" onclick="setFilter('base', this)">BASE</button>
+        </div>
+        <div class="sort-box" style="margin-left: auto;">
+            <select id="sort-select" onchange="filterInventory()">
+                <option value="id-asc">코드 순 (번호 오름차순)</option>
+                <option value="name-asc">이름 순 (가나다순)</option>
+                <option value="note-order">노트 계열 순 (Top → Base)</option>
+                <option value="stock-desc">상태 순 (보유중 우선)</option>
+                <option value="stock-asc">상태 순 (미보유 우선)</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 10%;">Code</th>
+                    <th style="width: 18%;">Note</th>
+                    <th style="width: 12%;">Role</th>
+                    <th style="width: 12%;">Odor Type</th>
+                    <th style="width: 23%;">Ingredient (KR)</th>
+                    <th style="width: 15%;">Ingredient (EN)</th>
+                    <th style="width: 10%;">Status</th>
+                </tr>
+            </thead>
+            <tbody id="inventory-tbody">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    let inventoryData = []; 
+    let currentNoteFilter = 'all';
+
+    async function loadInventory() {
+        try {
+            const response = await fetch('./inventory.json');
+            if (!response.ok) throw new Error('네트워크 응답 거부');
+            inventoryData = await response.json();
+            filterInventory();
+        } catch (error) {
+            console.error('데이터 패치 실패:', error);
+            document.getElementById('inventory-tbody').innerHTML = `<tr><td colspan="7" style="text-align:center; color:#c95757; padding:40px;">데이터베이스 로드 에러</td></tr>`;
+        }
+    }
+
+    function renderTable(data) {
+        const tbody = document.getElementById('inventory-tbody');
+        tbody.innerHTML = '';
+
+        if (data.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; color:#999; padding:40px;">일치하는 보유 향료가 없습니다.</td></tr>`;
+            return;
+        }
+
+        data.forEach(item => {
+            const tr = document.createElement('tr');
+            if(!item.stock) tr.className = 'sold-out';
+
+            const notes = Array.isArray(item.note) ? item.note : [item.note];
+            let badgeHtml = '<div class="badge-container">';
+            notes.forEach(n => { badgeHtml += `<span class="badge ${n}">${n}</span>`; });
+            badgeHtml += '</div>';
+
+            // 안전한 렌더링 처리를 위해 기본값 매핑
+            const itemRole = item.role || '-';
+            const itemOdor = item.odor || '-';
+
+            tr.innerHTML = `
+                <td style="font-weight: 500; font-family: monospace; font-size: 0.95rem;">${item.id}</td>
+                <td>${badgeHtml}</td>
+                <td class="meta-text">${itemRole}</td>
+                <td class="meta-text odor-tag">${itemOdor}</td>
+                <td style="font-weight: 500;">${item.name}</td>
+                <td style="color: #666; font-size: 0.85rem;">${item.eng}</td>
+                <td>
+                    <span class="status ${item.stock ? 'in-stock' : 'out-of-stock'}">
+                        ${item.stock ? '● 보유' : '● 미보유'}
+                    </span>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    function filterInventory() {
+        const query = document.getElementById('search-input').value.toLowerCase().trim();
+        const sortType = document.getElementById('sort-select').value;
+        
+        let filtered = inventoryData.filter(item => {
+            // 검색 영역 확장 (역할 및 향조로도 상단 서치바 검색 가능하도록 추가)
+            const itemRole = (item.role || '').toLowerCase();
+            const itemOdor = (item.odor || '').toLowerCase();
+            const matchQuery = item.id.toLowerCase().includes(query) || 
+                               item.name.toLowerCase().includes(query) || 
+                               item.eng.toLowerCase().includes(query) ||
+                               itemRole.includes(query) ||
+                               itemOdor.includes(query);
+            
+            const itemNotes = Array.isArray(item.note) ? item.note : [item.note];
+            const matchNote = (currentNoteFilter === 'all') || itemNotes.includes(currentNoteFilter);
+            
+            return matchQuery && matchNote;
+        });
+
+        // 🔄 정렬 로직 분기 처리
+        if (sortType === 'id-asc') {
+            filtered.sort((a, b) => a.id.localeCompare(b.id, undefined, {numeric: true, sensitivity: 'base'}));
+        } 
+        else if (sortType === 'name-asc') {
+            filtered.sort((a, b) => a.name.localeCompare(b.name, 'ko'));
+        } 
+        else if (sortType === 'note-order') {
+            const noteWeight = { 'top': 1, 'middle': 2, 'base': 3 };
+            filtered.sort((a, b) => {
+                const aNotes = Array.isArray(a.note) ? a.note : [a.note];
+                const bNotes = Array.isArray(b.note) ? b.note : [b.note];
+                const aW = noteWeight[aNotes[0]] || 99;
+                const bW = noteWeight[bNotes[0]] || 99;
+                if (aW !== bW) return aW - bW;
+                return a.id.localeCompare(b.id, undefined, {numeric: true, sensitivity: 'base'});
+            });
+        }
+        else if (sortType === 'stock-desc') {
+            // 보유중(true -> 1)이 미보유(false -> 0)보다 앞으로 오도록 정렬 (내림차순)
+            filtered.sort((a, b) => (b.stock ? 1 : 0) - (a.stock ? 1 : 0) || a.id.localeCompare(b.id, undefined, {numeric: true, sensitivity: 'base'}));
+        }
+        else if (sortType === 'stock-asc') {
+            // 미보유(false -> 0)가 보유중(true -> 1)보다 앞으로 오도록 정렬 (오름차순)
+            filtered.sort((a, b) => (a.stock ? 1 : 0) - (b.stock ? 1 : 0) || a.id.localeCompare(b.id, undefined, {numeric: true, sensitivity: 'base'}));
+        }
+
+        renderTable(filtered);
+    }
+
+    function setFilter(note, btnEl) {
+        currentNoteFilter = note;
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        btnEl.classList.add('active');
+        filterInventory();
+    }
+
+    window.onload = loadInventory;
+</script>
+</body>
+</html>

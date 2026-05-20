@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier Inventory — Entry Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --point-color: #4a3e3d;
+            --border-color: #ebdcd8;
+            --bg-top: #fcf9f7;
+            --bg-middle: #f6f1ee;
+            --bg-base: #ede6e2;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #fcfaf9; color: #333; padding: 40px 20px; }
+        .wrapper { width: 100%; max-width: 1100px; margin: 0 auto; }
+        
+        h1 { font-weight: 400; font-size: 1.6rem; letter-spacing: 2px; color: var(--point-color); margin-bottom: 10px; text-align: center; }
+        .subtitle { font-size: 0.85rem; color: #888; text-align: center; margin-bottom: 30px; }
+
+        .panel { background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 12px rgba(74,62,61,0.02); }
+        
+        table { width: 100%; border-collapse: collapse; text-align: left; margin-bottom: 20px; }
+        th { background: #fdfcfb; padding: 12px 8px; border-bottom: 1px solid var(--border-color); color: var(--point-color); font-weight: 700; font-size: 0.85rem; text-align: center; }
+        td { padding: 8px 4px; border-bottom: 1px solid #f9f6f5; text-align: center; vertical-align: middle; }
+        
+        input[type="text"], select { width: 100%; padding: 10px 8px; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.85rem; outline: none; color: #444; background-color: #fff; }
+        input[type="text"]:focus, select:focus { border-color: var(--point-color); }
+        input::placeholder { color: #ccc; }
+        
+        .checkbox-group { display: flex; justify-content: center; gap: 8px; align-items: center; }
+        .checkbox-label { display: flex; align-items: center; gap: 3px; font-size: 0.8rem; font-weight: 500; color: #555; cursor: pointer; user-select: none; }
+        .checkbox-label input[type="checkbox"] { width: 13px; height: 13px; accent-color: var(--point-color); cursor: pointer; }
+
+        .num-col { font-size: 0.85rem; color: #999; font-weight: 500; }
+
+        .btn-group { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; }
+        .btn { border: none; padding: 12px 25px; border-radius: 8px; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.2s; }
+        .btn-reset { background: #f1eae7; color: #666; }
+        .btn-reset:hover { background: #e5dad6; }
+        .btn-submit { background: var(--point-color); color: white; }
+        .btn-submit:hover { background: #352c2b; }
+
+        .json-output-container { display: none; margin-top: 20px; position: relative; }
+        .json-output-container.active { display: block; }
+        textarea { width: 100%; height: 250px; font-family: 'Courier New', monospace; font-size: 0.85rem; padding: 15px; border: 1px solid var(--border-color); border-radius: 8px; background: #faf8f7; color: #555; resize: vertical; outline: none; margin-top: 10px; }
+        .btn-copy { position: absolute; top: 20px; right: 15px; background: white; border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 4px; font-size: 0.75rem; cursor: pointer; color: #666; transition: all 0.2s; }
+        .btn-copy:hover { background: var(--point-color); color: white; border-color: var(--point-color); }
+        
+        .tip-box { font-size: 0.8rem; color: #666; margin-top: 8px; line-height: 1.4; }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <h1>NEW INGREDIENT ENTRY PANEL</h1>
+    <div class="subtitle">역할 및 향조 계열을 포함하여 최대 10개의 향료 데이터를 구성합니다.</div>
+
+    <div class="panel">
+        <form id="matrix-form" onsubmit="processMatrixJson(event)">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 4%;">No</th>
+                        <th style="width: 12%;">Code</th>
+                        <th style="width: 18%;">Note (중복)</th>
+                        <th style="width: 14%;">역할 (Role)</th>
+                        <th style="width: 14%;">향조 (Odor)</th>
+                        <th style="width: 18%;">Ingredient (KR)</th>
+                        <th style="width: 12%;">Ingredient (EN)</th>
+                        <th style="width: 8%;">Status</th>
+                    </tr>
+                </thead>
+                <tbody id="matrix-tbody">
+                </tbody>
+            </table>
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-reset" onclick="resetForm()">입력란 초기화</button>
+                <button type="submit" class="btn btn-submit">기존 데이터와 병합 후 JSON 생성</button>
+            </div>
+        </form>
+
+        <div id="json-container" class="json-output-container">
+            <hr style="border: 0; border-top: 1px dashed var(--border-color); margin: 25px 0;">
+            <div style="font-size: 0.9rem; font-weight: 700; color: var(--point-color);">GENERATED INVENTORY DATA</div>
+            <button class="btn-copy" onclick="copyJsonText()">📋 전체 코드 복사</button>
+            <textarea id="json-textarea" readonly></textarea>
+            <div class="tip-box">
+                💡 <b>업데이트 방법:</b> 위의 코드를 복사한 뒤, <code>inventory.json</code> 파일에 덮어쓰기 하시면 완벽히 반영됩니다.
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let existingInventory = [];
+
+    async function fetchExistingData() {
+        try {
+            const response = await fetch('./inventory.json');
+            if (response.ok) { existingInventory = await response.json(); }
+        } catch (error) {
+            console.log("기존 데이터 로드 실패. 신규 파일로 생성됩니다.");
+        }
+    }
+
+    function initMatrixRows() {
+        const tbody = document.getElementById('matrix-tbody');
+        tbody.innerHTML = '';
+        
+        for (let i = 1; i <= 10; i++) {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td class="num-col">${i}</td>
+                <td><input type="text" class="row-id" placeholder="ex) PB85" oninput="this.value = this.value.toUpperCase()"></td>
+                <td>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label"><input type="checkbox" class="note-box" value="top"> T</label>
+                        <label class="checkbox-label"><input type="checkbox" class="note-box" value="middle"> M</label>
+                        <label class="checkbox-label"><input type="checkbox" class="note-box" value="base"> B</label>
+                    </div>
+                </td>
+                <td>
+                    <select class="row-role">
+                        <option value="기조제">기조제 (Base)</option>
+                        <option value="변조제">변조제 (Modifier)</option>
+                        <option value="고정제">고정제 (Fixative)</option>
+                        <option value="조화제">조화제 (Blender)</option>
+                    </select>
+                </td>
+                <td>
+                    <select class="row-odor">
+                        <option value="시트러스">시트러스 (Citrus)</option>
+                        <option value="플로럴">플로럴 (Floral)</option>
+                        <option value="우디">우디 (Woody)</option>
+                        <option value="그린">그린 (Green)</option>
+                        <option value="허벌">허벌 (Herbal)</option>
+                        <option value="스파이시">스파이시 (Spicy)</option>
+                        <option value="머스크">머스크 (Musk)</option>
+                        <option value="애니멀릭">애니멀릭 (Animalic)</option>
+                        <option value="구르망">구르망 (Gourmand)</option>
+                        <option value="프루티">프루티 (Fruity)</option>
+                    </select>
+                </td>
+                <td><input type="text" class="row-name" placeholder="국문명"></td>
+                <td><input type="text" class="row-eng" placeholder="영문명"></td>
+                <td>
+                    <select class="row-stock">
+                        <option value="true">보유</option>
+                        <option value="false">미보유</option>
+                    </select>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        }
+    }
+
+    function processMatrixJson(e) {
+        e.preventDefault();
+        const rows = document.querySelectorAll('#matrix-tbody tr');
+        let newItemsCount = 0;
+        let updateItemsCount = 0;
+
+        for (let row of rows) {
+            const id = row.querySelector('.row-id').value.trim();
+            const name = row.querySelector('.row-name').value.trim();
+            const eng = row.querySelector('.row-eng').value.trim();
+            const role = row.querySelector('.row-role').value;
+            const odor = row.querySelector('.row-odor').value;
+            const stock = row.querySelector('.row-stock').value === 'true';
+
+            const checkedBoxes = row.querySelectorAll('.note-box:checked');
+            const noteArray = Array.from(checkedBoxes).map(box => box.value);
+
+            if (id) {
+                if (noteArray.length === 0) {
+                    alert(`${id} 향료의 노트 분류(T/M/B)를 최소 1개 이상 선택해 주세요.`);
+                    return;
+                }
+
+                const newItem = { id, name, eng, note: noteArray, role, odor, stock };
+                const matchIdx = existingInventory.findIndex(item => item.id === id);
+
+                if (matchIdx !== -1) {
+                    existingInventory[matchIdx] = newItem;
+                    updateItemsCount++;
+                } else {
+                    existingInventory.push(newItem);
+                    newItemsCount++;
+                }
+            }
+        }
+
+        if (newItemsCount === 0 && updateItemsCount === 0) {
+            alert('최소 1개 이상의 향료 Code를 입력하셔야 합니다.');
+            return;
+        }
+
+        existingInventory.sort((a, b) => a.id.localeCompare(b.id, undefined, {numeric: true, sensitivity: 'base'}));
+
+        const textarea = document.getElementById('json-textarea');
+        textarea.value = JSON.stringify(existingInventory, null, 2);
+        document.getElementById('json-container').classList.add('active');
+        alert(`데이터 병합 완료!\n(신규 추가: ${newItemsCount}건 / 내용 수정: ${updateItemsCount}건)`);
+    }
+
+    function copyJsonText() {
+        const textarea = document.getElementById('json-textarea');
+        textarea.select();
+        document.execCommand('copy');
+        alert('데이터가 클립보드에 복사되었습니다!');
+    }
+
+    function resetForm() {
+        if(confirm('입력 내용을 초기화하시겠습니까?')) {
+            document.getElementById('matrix-form').reset();
+            document.getElementById('json-container').classList.remove('active');
+        }
+    }
+
+    window.onload = async () => {
+        await fetchExistingData();
+        initMatrixRows();
+    };
+</script>
+</body>
+</html>
