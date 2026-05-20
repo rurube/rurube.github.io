@@ -3,748 +3,755 @@
     "id": "PB01",
     "name": "자몽",
     "eng": "Grapefruit",
-    "note": [
-      "top"
-    ],
+    "note": ["top"],
+    "role": "기조제",
+    "odor": "시트러스",
     "stock": false
   },
   {
     "id": "PB02",
     "name": "레몬",
     "eng": "Lemon",
-    "note": [
-      "top"
-    ],
+    "note": ["top"],
+    "role": "기조제",
+    "odor": "시트러스",
     "stock": false
   },
   {
     "id": "PB03",
     "name": "로즈",
     "eng": "Rose",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "기조제",
+    "odor": "플로럴",
     "stock": false
   },
   {
     "id": "PB04",
     "name": "베티버",
     "eng": "Vetiver",
-    "note": [
-      "base"
-    ],
+    "note": ["base"],
+    "role": "보류제",
+    "odor": "우디",
     "stock": true
   },
   {
     "id": "PB05",
     "name": "프리지아",
     "eng": "Freesia",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "기조제",
+    "odor": "플로럴",
     "stock": false
   },
   {
     "id": "PB06",
     "name": "라일락",
     "eng": "Lilac",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "변조제",
+    "odor": "플로럴",
     "stock": false
   },
   {
     "id": "PB07",
     "name": "네롤리",
     "eng": "Neroli",
-    "note": [
-      "top"
-    ],
+    "note": ["top"],
+    "role": "기조제",
+    "odor": "플로럴",
     "stock": true
   },
   {
     "id": "PB08",
     "name": "패츌리",
     "eng": "Patchouli",
-    "note": [
-      "base"
-    ],
+    "note": ["base"],
+    "role": "보류제",
+    "odor": "우디",
     "stock": false
   },
   {
     "id": "PB09",
     "name": "샌달우드",
     "eng": "Sandalwood",
-    "note": [
-      "base"
-    ],
+    "note": ["base"],
+    "role": "보류제",
+    "odor": "우디",
     "stock": true
   },
   {
     "id": "PB10",
     "name": "베르가못",
     "eng": "Bergamot",
-    "note": [
-      "top"
-    ],
+    "note": ["top"],
+    "role": "조화제",
+    "odor": "시트러스",
     "stock": true
   },
   {
     "id": "PB11",
     "name": "시나몬",
     "eng": "Cinnamon",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "변조제",
+    "odor": "스파이시",
     "stock": false
   },
   {
     "id": "PB12",
     "name": "갈바넘",
     "eng": "Galbanum",
-    "note": [
-      "top"
-    ],
+    "note": ["top"],
+    "role": "변조제",
+    "odor": "그린",
     "stock": false
   },
   {
     "id": "PB13",
     "name": "허니서클",
     "eng": "Honeysuckle",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "기조제",
+    "odor": "플로럴",
     "stock": false
   },
   {
     "id": "PB14",
     "name": "오크모스",
     "eng": "Oakmoss",
-    "note": [
-      "base"
-    ],
+    "note": ["base"],
+    "role": "보류제",
+    "odor": "우디",
     "stock": false
   },
   {
     "id": "PB15",
     "name": "복숭아",
     "eng": "Peach",
-    "note": [
-      "top"
-    ],
+    "note": ["top"],
+    "role": "변조제",
+    "odor": "프루티",
     "stock": false
   },
   {
     "id": "PB16",
     "name": "일랑일랑",
     "eng": "YlangYlang",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "조화제",
+    "odor": "플로럴",
     "stock": false
   },
   {
     "id": "PB17",
     "name": "제라늄",
     "eng": "Geranium",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "조화제",
+    "odor": "플로럴",
     "stock": true
   },
   {
     "id": "PB18",
     "name": "자스민",
     "eng": "Jasmine",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "기조제",
+    "odor": "플로럴",
     "stock": false
   },
   {
     "id": "PB19",
     "name": "마린 블루",
     "eng": "Marine Blue",
-    "note": [
-      "base"
-    ],
+    "note": ["base"],
+    "role": "변조제",
+    "odor": "아쿠아",
     "stock": false
   },
   {
     "id": "PB20",
     "name": "오렌지",
-    "eng": "Orange",
-    "note": "top",
+    "eng": ["top"],
+    "role": "기조제",
+    "odor": "시트러스",
     "stock": false
   },
   {
     "id": "PB21",
     "name": "튜베로즈",
     "eng": "Tuberose",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "기조제",
+    "odor": "플로럴",
     "stock": false
   },
   {
     "id": "PB22",
     "name": "클로브",
     "eng": "Clove",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "변조제",
+    "odor": "스파이시",
     "stock": false
   },
   {
     "id": "PB23",
     "name": "진저",
     "eng": "Ginger",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "변조제",
+    "odor": "스파이시",
     "stock": false
   },
   {
     "id": "PB24",
     "name": "라벤더",
     "eng": "Lavender",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "조화제",
+    "odor": "허벌",
     "stock": false
   },
   {
     "id": "PB25",
     "name": "오렌지 플라워",
     "eng": "Orange Flower",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "기조제",
+    "odor": "플로럴",
     "stock": false
   },
   {
     "id": "PB26",
     "name": "바닐라",
     "eng": "Vanilla",
-    "note": [
-      "base"
-    ],
+    "note": ["base"],
+    "role": "보류제",
+    "odor": "구르망",
     "stock": false
   },
   {
     "id": "PB27",
     "name": "알데하이드 C18",
     "eng": "Aldehyde C18",
-    "note": [
-      "base"
-    ],
+    "note": ["base"],
+    "role": "변조제",
+    "odor": "구르망",
     "stock": false
   },
   {
     "id": "PB28",
     "name": "수선화",
     "eng": "Narcissus",
-    "note": [
-      "middle",
-      "base"
-    ],
+    "note": ["middle", "base"],
+    "role": "기조제",
+    "odor": "플로럴",
     "stock": true
   },
   {
     "id": "PB29",
     "name": "앰버",
     "eng": "Amber",
-    "note": [
-      "base"
-    ],
+    "note": ["base"],
+    "role": "보류제",
+    "odor": "머스크",
     "stock": false
   },
   {
     "id": "PB30",
     "name": "시더우드",
     "eng": "Cedarwood",
-    "note": [
-      "base"
-    ],
+    "note": ["base"],
+    "role": "보류제",
+    "odor": "우디",
     "stock": true
   },
   {
     "id": "PB31",
     "name": "화이트 머스크",
     "eng": "White Musk",
-    "note": [
-      "base"
-    ],
+    "note": ["base"],
+    "role": "보류제",
+    "odor": "머스크",
     "stock": false
   },
   {
     "id": "PB32",
     "name": "만다린",
     "eng": "Mandarin",
-    "note": [
-      "top"
-    ],
+    "note": ["top"],
+    "role": "기조제",
+    "odor": "시트러스",
     "stock": false
   },
   {
     "id": "PB33",
     "name": "타임",
     "eng": "Thyme",
-    "note": [
-      "top",
-      "middle"
-    ],
+    "note": ["top", "middle"],
+    "role": "변조제",
+    "odor": "허벌",
     "stock": false
   },
   {
     "id": "PB34",
     "name": "블랙페퍼",
     "eng": "Black Pepper",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "변조제",
+    "odor": "스파이시",
     "stock": true
   },
   {
     "id": "PB35",
     "name": "클라리 세이지",
     "eng": "Clary Sage",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "조화제",
+    "odor": "허벌",
     "stock": true
   },
   {
     "id": "PB36",
     "name": "페티그레인",
     "eng": "Petitgrain",
-    "note": [
-      "top"
-    ],
+    "note": ["top"],
+    "role": "변조제",
+    "odor": "그린",
     "stock": false
   },
   {
     "id": "PB37",
     "name": "뮤게",
     "eng": "Muguet",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "기조제",
+    "odor": "플로럴",
     "stock": true
   },
   {
     "id": "PB38",
     "name": "라즈베리",
     "eng": "Raspberry",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "변조제",
+    "odor": "프루티",
     "stock": false
   },
   {
     "id": "PB39",
     "name": "민트",
     "eng": "Mint",
-    "note": "top",
+    "note": ["top"],
+    "role": "변조제",
+    "odor": "허벌",
     "stock": true
   },
   {
     "id": "PB40",
     "name": "바나나",
     "eng": "Banana",
-    "note": [
-      "base"
-    ],
+    "note": ["base"],
+    "role": "변조제",
+    "odor": "프루티",
     "stock": false
   },
   {
     "id": "PB41",
     "name": "바이올렛",
     "eng": "Violet",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "변조제",
+    "odor": "플로럴",
     "stock": false
   },
   {
     "id": "PB42",
     "name": "오션",
     "eng": "Ocean",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "기조제",
+    "odor": "아쿠아",
     "stock": false
   },
   {
     "id": "PB43",
     "name": "버베나",
     "eng": "Verbena",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "변조제",
+    "odor": "시트러스",
     "stock": false
   },
   {
     "id": "PB44",
     "name": "블랙베리",
     "eng": "Blackberry",
-    "note": "top",
+    "note": ["top"],
+    "role": "변조제",
+    "odor": "프루티",
     "stock": false
   },
   {
     "id": "PB45",
     "name": "블랙체리",
     "eng": "Blackcherry",
-    "note": "top",
+    "note": ["top"],
+    "role": "기조제",
+    "odor": "프루티",
     "stock": false
   },
   {
     "id": "PB46",
     "name": "블랙커런트",
     "eng": "Blackcurrent",
-    "note": [
-      "middle",
-      "base"
-    ],
+    "note": ["middle", "base"],
+    "role": "변조제",
+    "odor": "프루티",
     "stock": false
   },
   {
     "id": "PB47",
     "name": "비터레몬",
     "eng": "Bitter Lemon",
-    "note": [
-      "top"
-    ],
+    "note": ["top"],
+    "role": "변조제",
+    "odor": "시트러스",
     "stock": true
   },
   {
     "id": "PB48",
     "name": "시벳",
     "eng": "Civet",
-    "note": [
-      "base"
-    ],
+    "note": ["base"],
+    "role": "보류제",
+    "odor": "애니멀릭",
     "stock": false
   },
   {
     "id": "PB49",
     "name": "씨 센트",
     "eng": "Sea Scent",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "변조제",
+    "odor": "아쿠아",
     "stock": false
   },
   {
     "id": "PB50",
     "name": "아이비",
     "eng": "Ivy",
-    "note": [
-      "top"
-    ],
+    "note": ["top"],
+    "role": "변조제",
+    "odor": "그린",
     "stock": false
   },
   {
     "id": "PB51",
     "name": "아쿠아",
     "eng": "Aqua",
-    "note": [
-      "top"
-    ],
+    "note": ["top"],
+    "role": "기조제",
+    "odor": "아쿠아",
     "stock": true
   },
   {
     "id": "PB52",
     "name": "앰버그리스",
     "eng": "Ambergris",
-    "note": [
-      "base"
-    ],
+    "note": ["base"],
+    "role": "보류제",
+    "odor": "애니멀릭",
     "stock": false
   },
   {
     "id": "PB53",
     "name": "유칼립투스",
     "eng": "Eucalyptus",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "변조제",
+    "odor": "허벌",
     "stock": false
   },
   {
     "id": "PB54",
     "name": "커피",
     "eng": "Coffee",
-    "note": [
-      "base"
-    ],
+    "note": ["base"],
+    "role": "변조제",
+    "odor": "구르망",
     "stock": false
   },
   {
     "id": "PB55",
     "name": "코코넛",
     "eng": "Coconut",
-    "note": [
-      "base"
-    ],
+    "note": ["base"],
+    "role": "변조제",
+    "odor": "구르망",
     "stock": false
   },
   {
     "id": "PB56",
     "name": "통카 빈",
     "eng": "Tonka bean",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "보류제",
+    "odor": "구르망",
     "stock": false
   },
   {
     "id": "PB57",
     "name": "티 로즈",
     "eng": "Tea Rose",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "기조제",
+    "odor": "플로럴",
     "stock": false
   },
   {
     "id": "PB58",
     "name": "파인우드",
     "eng": "Pinewood",
-    "note": [
-      "base"
-    ],
+    "note": ["base"],
+    "role": "보류제",
+    "odor": "우디",
     "stock": false
   },
   {
     "id": "PB59",
     "name": "페로몬",
     "eng": "Pheromone",
-    "note": [
-      "base"
-    ],
+    "note": ["base"],
+    "role": "보류제",
+    "odor": "머스크",
     "stock": false
   },
   {
     "id": "PB60",
     "name": "히노키",
     "eng": "Hinoki",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "기조제",
+    "odor": "우디",
     "stock": false
   },
   {
     "id": "PB61",
     "name": "피오니",
     "eng": "Peony",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "기조제",
+    "odor": "플로럴",
     "stock": false
   },
   {
     "id": "PB62",
     "name": "헬리오트로핀",
     "eng": "Heliotropine",
-    "note": [
-      "base"
-    ],
+    "note": ["base"],
+    "role": "보류제",
+    "odor": "머스크",
     "stock": false
   },
   {
     "id": "PB63",
     "name": "화이트 로즈",
     "eng": "White Rose",
-    "note": [
-      "base"
-    ],
+    "note": ["base"],
+    "role": "기조제",
+    "odor": "플로럴",
     "stock": false
   },
   {
     "id": "PB64",
     "name": "히아신스",
     "eng": "Hyacinth",
-    "note": [
-      "top",
-      "middle"
-    ],
+    "note": ["top", "middle"],
+    "role": "변조제",
+    "odor": "플로럴",
     "stock": false
   },
   {
     "id": "PB65",
     "name": "가드니아",
     "eng": "Gardenia",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "기조제",
+    "odor": "플로럴",
     "stock": false
   },
   {
     "id": "PB66",
     "name": "다마스크 로즈",
     "eng": "Damasc Rose",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "기조제",
+    "odor": "플로럴",
     "stock": false
   },
   {
     "id": "PB67",
     "name": "딸기",
     "eng": "Strawberry",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "변조제",
+    "odor": "프루티",
     "stock": false
   },
   {
     "id": "PB68",
     "name": "라임",
     "eng": "Lime",
-    "note": [
-      "top"
-    ],
+    "note": ["top"],
+    "role": "기조제",
+    "odor": "시트러스",
     "stock": false
   },
   {
     "id": "PB69",
     "name": "레더",
     "eng": "Leather",
-    "note": [
-      "base"
-    ],
+    "note": ["base"],
+    "role": "보류제",
+    "odor": "애니멀릭",
     "stock": false
   },
   {
     "id": "PB70",
     "name": "홍자몽",
     "eng": "Red Grapefruit",
-    "note": "top",
+    "note": ["top"],
+    "role": "기조제",
+    "odor": "시트러스",
     "stock": false
   },
   {
     "id": "PB71",
     "name": "로즈마리",
     "eng": "Rosemary",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "변조제",
+    "odor": "허벌",
     "stock": false
   },
   {
     "id": "PB72",
     "name": "자단",
     "eng": "Rosewood",
-    "note": [
-      "top",
-      "middle"
-    ],
+    "note": ["top", "middle"],
+    "role": "조화제",
+    "odor": "우디",
     "stock": false
   },
   {
     "id": "PB73",
     "name": "릴리 오브 더 밸리",
     "eng": "Lily of the valley",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "기조제",
+    "odor": "플로럴",
     "stock": false
   },
   {
     "id": "PB74",
     "name": "망고",
     "eng": "Mango",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "변조제",
+    "odor": "프루티",
     "stock": false
   },
   {
     "id": "PB75",
     "name": "머스크",
     "eng": "Musk",
-    "note": [
-      "base"
-    ],
+    "note": ["base"],
+    "role": "보류제",
+    "odor": "머스크",
     "stock": false
   },
   {
     "id": "PB76",
     "name": "매그놀리아",
     "eng": "Magnolia",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "기조제",
+    "odor": "플로럴",
     "stock": false
   },
   {
     "id": "PB77",
     "name": "멜론",
     "eng": "Melon",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "변조제",
+    "odor": "프루티",
     "stock": false
   },
   {
     "id": "PB78",
     "name": "미르",
     "eng": "Myrrh",
-    "note": [
-      "middle",
-      "base"
-    ],
+    "note": ["middle", "base"],
+    "role": "보류제",
+    "odor": "우디",
     "stock": false
   },
   {
     "id": "PB79",
     "name": "밤부",
     "eng": "Bamboo",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "변조제",
+    "odor": "그린",
     "stock": false
   },
   {
     "id": "PB80",
     "name": "프랑킨센스",
     "eng": "Frankincense",
-    "note": [
-      "base"
-    ],
+    "note": ["base"],
+    "role": "보류제",
+    "odor": "우디",
     "stock": false
   },
   {
     "id": "PB81",
     "name": "아이리스",
     "eng": "Iris",
-    "note": [
-      "middle"
-    ],
+    "note": ["middle"],
+    "role": "조화제",
+    "odor": "플로럴",
     "stock": false
   },
   {
     "id": "PB82",
     "name": "무화과",
     "eng": "Fig",
-    "note": "top",
+    "note": ["top"],
+    "role": "변조제",
+    "odor": "프루티",
     "stock": false
   },
   {
     "id": "PB83",
     "name": "그린",
     "eng": "Green",
-    "note": "top",
+    "note": ["top"],
+    "role": "기조제",
+    "odor": "그린",
     "stock": false
   },
   {
     "id": "PB84",
     "name": "오리스 콘크리트",
     "eng": "Orris Concrete",
-    "note": [
-      "base"
-    ],
+    "note": ["base"],
+    "role": "보류제",
+    "odor": "플로럴",
     "stock": false
   }
 ]
