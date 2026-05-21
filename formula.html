@@ -79,9 +79,10 @@
                 <input type="text" id="in-bias" placeholder="대상 이름 (고객 제공용)" oninput="updateCard()">
             </div>
             <div class="row-grid">
-                <input type="text" id="in-perfumer" placeholder="조향사 이름" value="Perfumer 아틀리에" oninput="updateCard()">
+                <input type="text" id="in-perfumer" placeholder="조향사 이름" value="찬" oninput="updateCard()">
                 <input type="text" id="in-date" placeholder="제작일 (e.g. 2026. 05. 19)" oninput="updateCard()">
             </div>
+            <input type="text" id="in-perfume-name" placeholder="향수 이름 (e.g. Moonlit Linen)" oninput="updateCard()">
         </div>
 
         <!-- 2. 올팩토리 피라미드 (향조) -->
@@ -124,6 +125,10 @@
                 <div class="card-label">Formulated For</div>
                 <div class="card-value" id="card-bias" style="font-weight:700; color:var(--point-color);">이름</div>
             </div>
+        </div>
+        <div class="card-row" style="margin-top: -6px; margin-bottom: 18px;">
+            <div class="card-label">Perfume Name</div>
+            <div class="card-value" id="card-perfume-name" style="font-size:0.95rem; font-weight:700; color:var(--point-color);">-</div>
         </div>
 
         <!-- 올팩토리 노트 섹션 -->
@@ -175,6 +180,7 @@
         function updateCard() {
             document.getElementById('card-code').innerText = document.getElementById('in-code').value || "#0000-00";
             document.getElementById('card-bias').innerText = document.getElementById('in-bias').value || "이름";
+            document.getElementById('card-perfume-name').innerText = document.getElementById('in-perfume-name').value || "-";
             document.getElementById('card-perfumer').innerText = document.getElementById('in-perfumer').value || "Perfumer";
             document.getElementById('card-date').innerText = document.getElementById('in-date').value || "YYYY. MM. DD";
             

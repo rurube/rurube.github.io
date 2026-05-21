@@ -49,7 +49,7 @@
     "name": "라일락",
     "eng": "Lilac",
     "note": ["middle"],
-    "role": "변조제",
+    "role": "기조제",
     "odor": "플로럴",
     "stock": false
   },
@@ -76,7 +76,7 @@
     "name": "샌달우드",
     "eng": "Sandalwood",
     "note": ["base"],
-    "role": "보류제",
+    "role": "조화제",
     "odor": "우디",
     "stock": true
   },
@@ -122,7 +122,7 @@
     "eng": "Oakmoss",
     "note": ["base"],
     "role": "보류제",
-    "odor": "우디",
+    "odor": "모시",
     "stock": true
   },
   {
@@ -148,7 +148,7 @@
     "name": "제라늄",
     "eng": "Geranium",
     "note": ["middle"],
-    "role": "조화제",
+    "role": "기조제",
     "odor": "플로럴",
     "stock": true
   },
@@ -167,7 +167,7 @@
     "eng": "Marine Blue",
     "note": ["base"],
     "role": "변조제",
-    "odor": "아쿠아",
+    "odor": "마린",
     "stock": false
   },
   {
@@ -210,8 +210,8 @@
     "name": "라벤더",
     "eng": "Lavender",
     "note": ["middle"],
-    "role": "조화제",
-    "odor": "허벌",
+    "role": "변조제",
+    "odor": "허브",
     "stock": true
   },
   {
@@ -238,7 +238,7 @@
     "eng": "Aldehyde C18",
     "note": ["base"],
     "role": "변조제",
-    "odor": "구르망",
+    "odor": "알데하이드",
     "stock": true
   },
   {
@@ -256,7 +256,7 @@
     "eng": "Amber",
     "note": ["base"],
     "role": "보류제",
-    "odor": "머스크",
+    "odor": "애니멀",
     "stock": true
   },
   {
@@ -274,7 +274,7 @@
     "eng": "White Musk",
     "note": ["base"],
     "role": "보류제",
-    "odor": "머스크",
+    "odor": "애니멀",
     "stock": true
   },
   {
@@ -309,8 +309,8 @@
     "name": "클라리 세이지",
     "eng": "Clary Sage",
     "note": ["middle"],
-    "role": "조화제",
-    "odor": "허벌",
+    "role": "변조제",
+    "odor": "허브",
     "stock": true
   },
   {
@@ -346,7 +346,7 @@
     "eng": "Mint",
     "note": ["top"],
     "role": "변조제",
-    "odor": "허벌",
+    "odor": "허브",
     "stock": true
   },
   {
@@ -363,7 +363,7 @@
     "name": "바이올렛",
     "eng": "Violet",
     "note": ["middle"],
-    "role": "변조제",
+    "role": "기조제",
     "odor": "플로럴",
     "stock": false
   },
@@ -372,8 +372,8 @@
     "name": "오션",
     "eng": "Ocean",
     "note": ["middle"],
-    "role": "기조제",
-    "odor": "아쿠아",
+    "role": "변조제",
+    "odor": "마린",
     "stock": false
   },
   {
@@ -381,8 +381,8 @@
     "name": "버베나",
     "eng": "Verbena",
     "note": ["middle"],
-    "role": "변조제",
-    "odor": "시트러스",
+    "role": "기조제",
+    "odor": "허브",
     "stock": false
   },
   {
@@ -399,7 +399,7 @@
     "name": "블랙체리",
     "eng": "Blackcherry",
     "note": ["top"],
-    "role": "기조제",
+    "role": "변조제",
     "odor": "프루티",
     "stock": false
   },
@@ -417,7 +417,7 @@
     "name": "비터레몬",
     "eng": "Bitter Lemon",
     "note": ["top"],
-    "role": "변조제",
+    "role": "기조제",
     "odor": "시트러스",
     "stock": true
   },
@@ -427,7 +427,7 @@
     "eng": "Civet",
     "note": ["base"],
     "role": "보류제",
-    "odor": "애니멀릭",
+    "odor": "애니멀",
     "stock": false
   },
   {
@@ -463,7 +463,7 @@
     "eng": "Ambergris",
     "note": ["base"],
     "role": "보류제",
-    "odor": "애니멀릭",
+    "odor": "발사믹",
     "stock": true
   },
   {
@@ -472,7 +472,7 @@
     "eng": "Eucalyptus",
     "note": ["middle"],
     "role": "변조제",
-    "odor": "허벌",
+    "odor": "허브",
     "stock": false
   },
   {
@@ -526,7 +526,7 @@
     "eng": "Pheromone",
     "note": ["base"],
     "role": "보류제",
-    "odor": "머스크",
+    "odor": "파우더리",
     "stock": false
   },
   {
@@ -553,7 +553,7 @@
     "eng": "Heliotropine",
     "note": ["base"],
     "role": "보류제",
-    "odor": "머스크",
+    "odor": "플로럴",
     "stock": false
   },
   {
@@ -570,7 +570,7 @@
     "name": "히아신스",
     "eng": "Hyacinth",
     "note": ["top", "middle"],
-    "role": "변조제",
+    "role": "기조제",
     "odor": "플로럴",
     "stock": false
   },
@@ -616,7 +616,7 @@
     "eng": "Leather",
     "note": ["base"],
     "role": "보류제",
-    "odor": "애니멀릭",
+    "odor": "애니멀",
     "stock": true
   },
   {
@@ -634,7 +634,7 @@
     "eng": "Rosemary",
     "note": ["middle"],
     "role": "변조제",
-    "odor": "허벌",
+    "odor": "허브",
     "stock": false
   },
   {
@@ -642,7 +642,7 @@
     "name": "자단",
     "eng": "Rosewood",
     "note": ["top", "middle"],
-    "role": "조화제",
+    "role": "보류제",
     "odor": "우디",
     "stock": false
   },
@@ -660,7 +660,7 @@
     "name": "망고",
     "eng": "Mango",
     "note": ["middle"],
-    "role": "변조제",
+    "role": "기조제",
     "odor": "프루티",
     "stock": false
   },
@@ -687,7 +687,7 @@
     "name": "멜론",
     "eng": "Melon",
     "note": ["middle"],
-    "role": "변조제",
+    "role": "조화제",
     "odor": "프루티",
     "stock": false
   },
@@ -705,7 +705,7 @@
     "name": "밤부",
     "eng": "Bamboo",
     "note": ["middle"],
-    "role": "변조제",
+    "role": "조화제",
     "odor": "그린",
     "stock": true
   },
@@ -723,7 +723,7 @@
     "name": "아이리스",
     "eng": "Iris",
     "note": ["middle"],
-    "role": "조화제",
+    "role": "기조제",
     "odor": "플로럴",
     "stock": false
   },
@@ -741,7 +741,7 @@
     "name": "그린",
     "eng": "Green",
     "note": ["top"],
-    "role": "기조제",
+    "role": "조화제",
     "odor": "그린",
     "stock": true
   },
@@ -750,8 +750,8 @@
     "name": "오리스 콘크리트",
     "eng": "Orris Concrete",
     "note": ["base"],
-    "role": "보류제",
-    "odor": "플로럴",
+    "role": "기조제",
+    "odor": "파우더리",
     "stock": false
   }
 ]
